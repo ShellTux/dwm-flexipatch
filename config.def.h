@@ -332,6 +332,18 @@ static const unsigned int alphas[][3] = {
 	[SchemeFlexSelSPRL]  = { OPAQUE, baralpha, borderalpha },
 	[SchemeFlexSelFloat] = { OPAQUE, baralpha, borderalpha },
 	#endif // BAR_FLEXWINTITLE_PATCH
+	#if BAR_COLORFULTAGS_PATCH
+	[SchemeTag1]         = { OPAQUE, baralpha, borderalpha},
+	[SchemeTag2]         = { OPAQUE, baralpha, borderalpha},
+	[SchemeTag3]         = { OPAQUE, baralpha, borderalpha},
+	[SchemeTag4]         = { OPAQUE, baralpha, borderalpha},
+	[SchemeTag5]         = { OPAQUE, baralpha, borderalpha},
+	[SchemeTag6]         = { OPAQUE, baralpha, borderalpha},
+	[SchemeTag7]         = { OPAQUE, baralpha, borderalpha},
+	[SchemeTag8]         = { OPAQUE, baralpha, borderalpha},
+	[SchemeTag9]         = { OPAQUE, baralpha, borderalpha},
+	[SchemeLayout]       = { OPAQUE, baralpha, borderalpha},
+	#endif // BAR_COLORFULTAGS_PATCH
 };
 #endif // BAR_ALPHA_PATCH
 #if BAR_VTCOLORS_PATCH
