@@ -49,11 +49,17 @@ draw_tags(Bar *bar, BarArg *a)
 		invert = 0;
 		w = TEXTW(icon);
 		drw_setscheme(drw, scheme[
+			#if BAR_COLORFULTAGS_PATCH
+			(occ | m->tagset[m->seltags]) & 1 << i
+			? SchemeTag1 + i
+			: SchemeTagsNorm
+			#else
 			m->tagset[m->seltags] & 1 << i
 			? SchemeTagsSel
-			: urg & 1 << i
+			: (urg & 1 << i
 			? SchemeUrg
-			: SchemeTagsNorm
+			: SchemeTagsNorm)
+			#endif
 		]);
 		drw_text(drw, x, a->y, w, a->h, lrpad / 2, icon, invert, False);
 		drawindicator(m, NULL, occ, x, a->y, w, a->h, i, -1, invert, tagindicatortype);

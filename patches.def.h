@@ -357,6 +357,11 @@
  */
 #define BAR_NO_COLOR_EMOJI_PATCH 0
 
+/* Allow configuration of colors for each tag. Looks good with the underline patch.
+ * https://github.com/fitrh/dwm/issues/1
+ */
+#define BAR_COLORFULTAGS_PATCH 0
+
 /* This patch adds vertical and horizontal space between the statusbar and the edge of the screen.
  * https://dwm.suckless.org/patches/barpadding/
  */
