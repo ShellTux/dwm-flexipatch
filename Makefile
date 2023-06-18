@@ -25,10 +25,12 @@ options:
 
 ${OBJ}: config.h config.mk patches.h
 
-config.h:
+config.h: config.def.h
+	rm -f config.h
 	cp config.def.h $@
 
-patches.h:
+patches.h: patches.def.h
+	rm -f patches.h
 	cp patches.def.h $@
 
 dwm: ${OBJ}
