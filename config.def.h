@@ -1491,6 +1491,10 @@ static const Button buttons[] = {
 	#else
 	{ ClkLtSymbol,          0,                   Button3,        setlayout,      {.v = &layouts[2]} },
 	#endif // BAR_LAYOUTMENU_PATCH
+	#if CYCLELAYOUTS_PATCH
+	{ ClkLtSymbol,          0,                   Button4,        cyclelayout,    {.i = +1 }, },
+	{ ClkLtSymbol,          0,                   Button5,        cyclelayout,    {.i = -1 }, },
+	#endif // CYCLELAYOUTS_PATCH
 	#if BAR_WINTITLEACTIONS_PATCH
 	{ ClkWinTitle,          0,                   Button1,        togglewin,      {0} },
 	{ ClkWinTitle,          0,                   Button3,        showhideclient, {0} },
