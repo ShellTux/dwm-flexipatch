@@ -369,6 +369,12 @@
  */
 #define BAR_PADDING_VANITYGAPS_PATCH 0
 
+/* Smart bar padding patch that automatically adjusts the padding when there is
+ * only one client on the monitor. Works well with vanitygaps and barpadding
+ * patches.
+ */
+#define BAR_PADDING_SMART_PATCH 0
+
 /* This patch adds simple markup for status messages using pango markup.
  * This depends on the pango library v1.44 or greater.
  * You need to uncomment the corresponding lines in config.mk to use the pango libraries
@@ -572,6 +578,18 @@
  */
 #define DISTRIBUTETAGS_PATCH 0
 
+/* By default dwm will terminate on color allocation failure and the behaviour is intended to
+ * catch and inform the user of color configuration issues.
+ *
+ * Some patches like status2d and xresources / xrdb can change colours during runtime, which
+ * means that if a color can't be allocated at this time then the window manager will abruptly
+ * terminate.
+ *
+ * This patch will ignore color allocation failures and continue on as normal. The effect of
+ * this is that the existing color, that was supposed to be replaced, will remain as-is.
+ */
+#define DO_NOT_DIE_ON_COLOR_ALLOCATION_FAILURE_PATCH 0
+
 /* Similarly to the dragmfact patch this allows you to click and drag clients to change the
  * cfact to adjust the client's size in the stack. This patch depends on the cfacts patch.
  */
@@ -646,10 +664,22 @@
  */
 #define FOCUSDIR_PATCH 0
 
+/* When changing tags, closing windows or moving clients out of view then focus will revert to the
+ * client window that remains under the mouse cursor rather than the most recently focused window.
+ * https://github.com/bakkeby/patches/wiki/focusfollowmouse
+ */
+#define FOCUSFOLLOWMOUSE_PATCH 0
+
 /* A simple patch that just puts focus back to the master client.
  * https://dwm.suckless.org/patches/focusmaster/
  */
 #define FOCUSMASTER_PATCH 0
+
+/* A variant of the focusmaster patch that additionally allows the focus to be returned to the
+ * previously focused client
+ * https://dwm.suckless.org/patches/focusmaster/
+ */
+#define FOCUSMASTER_RETURN_PATCH 0
 
 /* Switch focus only by mouse click and not sloppy (focus follows mouse pointer).
  * https://dwm.suckless.org/patches/focusonclick/
@@ -879,10 +909,21 @@
  */
 #define PERTAG_VANITYGAPS_PATCH 0
 
+/* This patch allows configuring vanity gaps on a per-monitor basis rather than
+ * all monitors (default).
+ */
+#define PERMON_VANITYGAPS_PATCH 0
+
 /* This controls whether or not to also store bar position on a per
  * tag basis, or leave it as one bar per monitor.
  */
 #define PERTAGBAR_PATCH 0
+
+/* Similar to the focusdir patch this patch allow users to move a window in any direction
+ * in the tiled stack (up, down, left, right).
+ * https://github.com/bakkeby/patches/wiki/placedir
+ */
+#define PLACEDIR_PATCH 0
 
 /* This patch lets you change the position of a client in the stack using the mouse.
  * https://github.com/bakkeby/patches/wiki/placemouse
@@ -1015,6 +1056,11 @@
  * https://dwm.suckless.org/patches/selfrestart/
  */
 #define SELFRESTART_PATCH 0
+
+/* Floating windows being sent to another monitor will be centered.
+ * https://dwm.suckless.org/patches/sendmoncenter/
+ */
+#define SENDMON_CENTER_PATCH 0
 
 /* This patch allow clients to keep focus when being sent to another monitor.
  * https://github.com/bakkeby/patches/blob/master/dwm/dwm-sendmon_keepfocus-6.2.diff
@@ -1255,6 +1301,11 @@
  */
 #define TOGGLEFULLSCREEN_PATCH 0
 
+/* This patch allows for the bar position (top or bottom) to be toggled during runtime.
+ * https://dwm.suckless.org/patches/toggletopbar/
+ */
+#define TOGGLETOPBAR_PATCH 0
+
 /* Minor patch that lets you use the same keyboard shortcut to toggle to the previous layout if the
  * designated layout is already active.
  *
@@ -1297,6 +1348,13 @@
  * https://dwm.suckless.org/patches/unfloatvisible/
  */
 #define UNFLOATVISIBLE_PATCH 0
+
+/* This patch adds a client rule that allows for windows that do not specify the override-redirect
+ * to not be managed by the window manager. This can be useful for external bars, widgets,
+ * launchers, docks, desktop icons and more.
+ * https://github.com/bakkeby/patches/wiki/unmanaged
+ */
+#define UNMANAGED_PATCH 0
 
 /* This patch adds configurable gaps between windows differentiating between outer, inner,
  * horizontal and vertical gaps.
